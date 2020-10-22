@@ -1,13 +1,19 @@
 package com.company.project.core;
 
 import com.alibaba.fastjson.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 统一API响应结果封装
  */
+@ApiModel
 public class Result<T> {
+    @ApiModelProperty("状态码")
     private int code;
+    @ApiModelProperty(value = "信息", example = "成功")
     private String message;
+    @ApiModelProperty("数据")
     private T data;
 
     public Result setCode(ResultCode resultCode) {

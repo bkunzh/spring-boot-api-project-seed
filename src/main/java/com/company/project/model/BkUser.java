@@ -1,18 +1,25 @@
 package com.company.project.model;
 
-import java.util.Date;
-import javax.persistence.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@ApiModel(description = "用户信息")
 @Table(name = "bk_user")
 public class BkUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @ApiModelProperty(value = "用户名", example = "张三")
     private String username;
 
+    @ApiModelProperty(value = "年龄", example = "18")
     private Short age;
 
+    @ApiModelProperty(value = "xx")
     @Column(name = "xx_yy")
     private String xxYy;
 

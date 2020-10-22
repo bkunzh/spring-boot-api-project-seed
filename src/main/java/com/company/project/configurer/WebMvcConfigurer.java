@@ -1,21 +1,9 @@
 package com.company.project.configurer;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-
 import com.company.project.core.Result;
 import com.company.project.core.ResultCode;
 import com.company.project.core.ServiceException;
@@ -36,6 +24,16 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Spring MVC 配置
  */
@@ -45,6 +43,17 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     private final Logger logger = LoggerFactory.getLogger(WebMvcConfigurer.class);
     @Value("${spring.profiles.active}")
     private String env;//当前激活的配置文件
+
+    // 配置这个 https://github.com/lihengming/spring-boot-api-project-seed/pull/1/files
+    //使用swagger2 UI 的 springMVC配置
+    //@Override
+    //public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    //    registry.addResourceHandler("swagger-ui.html")
+    //            .addResourceLocations("classpath:/META-INF/resources/");
+    //
+    //    registry.addResourceHandler("/webjars/**")
+    //            .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    //}
 
     //使用阿里 FastJson 作为JSON MessageConverter
     @Override
