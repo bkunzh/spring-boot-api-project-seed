@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.project.dao.BkUserMapper">
-  <resultMap id="BaseResultMap" type="com.company.project.model.BkUser">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="age" jdbcType="SMALLINT" property="age" />
-    <result column="xx_yy" jdbcType="VARCHAR" property="xxYy" />
-    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.company.project.model.BkUser">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="age" jdbcType="SMALLINT" property="age"/>
+        <result column="xx_yy" jdbcType="VARCHAR" property="xxYy"/>
+        <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime"/>
+    </resultMap>
+
+    <select id="test1" resultType="map">
+        SELECT u.id, u.username, c.*
+        from bk_user u
+        left join class c ON 1=1
+        order BY u.id desc limit 100
+  </select>
 </mapper>
